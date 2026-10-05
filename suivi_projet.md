@@ -1,0 +1,39 @@
+# Journal de bord
+
+* SAE51 - Installation d’un ERP
+* ZATUROSKI Ivan
+* DESOMBRES Yanaël
+* Lundi 5 octobre 2026
+
+
+## Séance n° 1
+
+* **date** : Lundi 5 octobre 2026 (16h00-17h30)
+* **Travail effectué** : Etude du projet, répartition des taches
+* **A faire à la prochaine séance** : Installer vm avec dolibarr
+* **Difficultés rencontrées** :temps manquant pour installer la vm
+* **Remarques sur la séances** (membre absent, pbe technique, ...)
+
+
+## Séance n° 2
+
+* date - heure
+* Travail effectué
+* A faire à la prochaine séance
+* Difficultés rencontrées
+* Remarques sur la séances (membre absent, pbe technique, ...)
+
+
+## Séance n° 3
+
+* date - heure
+* Travail effectué
+* A faire à la prochaine séance
+* Difficultés rencontrées
+* Remarques sur la séances (membre absent, pbe technique, ...)
+
+
+
+...
+
+
