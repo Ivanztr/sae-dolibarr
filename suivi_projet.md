@@ -26,10 +26,10 @@
 
 ## Séance n° 3
 
-* date - heure
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
+* **date** : Mardi 6 octobre 2026 (16h00-17h30)
+* **Travail effectué** : creation docker et automatisation des csv
+* **A faire à la prochaine séance** : test des automatisation etc
+* **Difficultés rencontrées** :la chaleur dans la salle 
 * Remarques sur la séances (membre absent, pbe technique, ...)
 
 
