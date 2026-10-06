@@ -17,10 +17,10 @@
 
 ## Séance n° 2
 
-* date - heure
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
+* **date** : Mardi 6 octobre 2026 (8h30-10h00)
+* **Travail effectué** : installation vm, installation dollibarr, création des csv
+* **A faire à la prochaine séance** : trouver un moyen d'importer les données existante
+* **Difficultés rencontrées** :comprendre dollibarr
 * Remarques sur la séances (membre absent, pbe technique, ...)
 
 
