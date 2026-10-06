@@ -2,3 +2,10 @@ Nom_Societe;Type;Adresse;Code_Postal;Ville;Telephone;Email
 ReseauGouv Normandie;Client;15 Rue de la République;76000;Rouen;0235123456;contact@reseaugouv-normandie.fr
 Tech-Havrais;Client;10 Quai Colbert;76600;Le Havre;0232789012;support@tech-havrais.com
 CyberSec Seine;Client;45 Avenue du Mont-Riboudet;76000;Rouen;0235987654;admin@cybersec-seine.fr
+Maritime IT Solutions;Client;30 Rue de Paris;76600;Le Havre;0232112233;contact@maritime-it.fr
+Rouen Telecom;Client;12 Place du Vieux Marché;76000;Rouen;0235445566;hello@rouen-telecom.fr
+Caux Réseaux;Client;5 Avenue Foch;76200;Dieppe;0235778899;info@caux-reseaux.fr
+Normandie Hébergement;Client;8 Rue Jeanne d'Arc;76000;Rouen;0235990011;commercial@normandie-hebergement.com
+Seine SysAdmin;Client;14 Boulevard de Strasbourg;76600;Le Havre;0232556677;contact@seine-sysadmin.fr
+Eure Connect;Client;22 Rue de la Roë;27000;Évreux;0232334455;support@eure-connect.fr
+IUT Services R&T;Client;Avenue de l'Université;76800;Saint-Étienne-du-Rouvray;0232119988;dsi@iut-services.fr

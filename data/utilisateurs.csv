@@ -2,3 +2,10 @@ Identifiant;Nom;Prenom;Email;Role;Mot_de_passe
 superadmin;Admin;Systeme;admin@entreprise.local;superadmin;Admin123!
 ydesombres;Desombres;Yanaël;yanael@entreprise.local;user;User123!
 ivan;Dev;Ivan;ivan@entreprise.local;user;User123!
+mlalonde;Lalonde;Marc;mlalonde@entreprise.local;user;User123!
+jdubois;Dubois;Julie;jdubois@entreprise.local;user;User123!
+sgarcia;Garcia;Sophie;sgarcia@entreprise.local;user;User123!
+tmartin;Martin;Thomas;tmartin@entreprise.local;user;User123!
+rbernard;Bernard;Romain;rbernard@entreprise.local;user;User123!
+cleblanc;Leblanc;Chloé;cleblanc@entreprise.local;user;User123!
+apicard;Picard;Antoine;apicard@entreprise.local;user;User123!
