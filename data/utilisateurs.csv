@@ -1,0 +1,4 @@
+Identifiant;Nom;Prenom;Email;Role;Mot_de_passe
+superadmin;Admin;Systeme;admin@entreprise.local;superadmin;Admin123!
+ydesombres;Desombres;Yanaël;yanael@entreprise.local;user;User123!
+ivan;Dev;Ivan;ivan@entreprise.local;user;User123!
