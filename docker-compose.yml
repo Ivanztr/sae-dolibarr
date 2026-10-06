@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  # ================================
+  # Service SGBD : MariaDB
+  # ================================
+  db:
+    image: mariadb:10.11
+    container_name: dolibarr_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./data:/docker-entrypoint-initdb.d/import:ro
+    networks:
+      - dolibarr_net
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ================================
+  # Service Application : Dolibarr
+  # ================================
+  dolibarr:
+    image: dolibarr/dolibarr:latest
+    container_name: dolibarr_app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DOLI_DB_HOST: ${DOLI_DB_HOST}
+      DOLI_DB_NAME: ${DOLI_DB_NAME}
+      DOLI_DB_USER: ${DOLI_DB_USER}
+      DOLI_DB_PASSWORD: ${DOLI_DB_PASSWORD}
+      DOLI_ADMIN_LOGIN: ${DOLI_ADMIN_LOGIN}
+      DOLI_ADMIN_PASSWORD: ${DOLI_ADMIN_PASSWORD}
+    ports:
+      - "8080:80"
+    volumes:
+      - dolibarr_data:/var/www/documents
+      - ./data:/var/www/import:ro
+    networks:
+      - dolibarr_net
+
+# ================================
+# Volumes persistants
+# ================================
+volumes:
+  db_data:
+    driver: local
+  dolibarr_data:
+    driver: local
+
+# ================================
+# Réseau interne
+# ================================
+networks:
+  dolibarr_net:
+    driver: bridge
