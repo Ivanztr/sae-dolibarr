@@ -32,6 +32,14 @@
 * **Difficultés rencontrées** :la chaleur dans la salle 
 * Remarques sur la séances (membre absent, pbe technique, ...)
 
+## Séance n° 4
+
+* **date** : Mardi 8 octobre 2026 (13h00-16h00)
+* **Travail effectué** : correction bug du docker compose + prévisualisation automatisation dolibarr
+* **A faire à la prochaine séance** : automatiser dolibarr depuis docker compose
+* **Difficultés rencontrées** : savoir dou venait les erreurs du docker file 
+* Remarques sur la séances (membre absent, pbe technique, ...)
+
 
 
 ...
