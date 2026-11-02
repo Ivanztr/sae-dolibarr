@@ -40,7 +40,13 @@
 * **Difficultés rencontrées** : savoir dou venait les erreurs du docker file 
 * Remarques sur la séances (membre absent, pbe technique, ...)
 
+## Séance n° 5
 
+* **date** : Lundi 2 Novembre 2026 (13h00-16h00)
+* **Travail effectué** : Finalisation de l'automatisation Dolibarr + correction d'un petit bug pour se connecter à l'ERP
+* **A faire à la prochaine séance** : Préparation de la présentation orale
+* **Difficultés rencontrées** : Savoir où on s'était arrêté il y a un mois et correction d'un bug de connexion à l'ERP.
+* Remarques sur la séances (membre absent, pbe technique, ...)
 
 ...
 
