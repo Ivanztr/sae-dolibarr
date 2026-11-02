@@ -81,7 +81,7 @@ import_tiers() {
         ville_esc=$(echo "$ville" | sed "s/'/''/g")
 
         cat >> "$SQL_SCRIPT" <<EOF
-INSERT INTO llx_societe (nom, address, zip, town, phone, email, client, status, datec, fk_pays)
+INSERT IGNORE INTO llx_societe (nom, address, zip, town, phone, email, client, status, datec, fk_pays)
 VALUES ('$nom_esc', '$adresse_esc', '$cp', '$ville_esc', '$tel', '$email', $type_id, 1, NOW(), 1);
 EOF
     done
@@ -133,7 +133,7 @@ if [ -f "${CSV_DIR}/utilisateurs.csv" ]; then
         fi
 
         cat >> "$SQL_SCRIPT" <<EOF
-INSERT INTO llx_user (login, lastname, firstname, email, admin, pass, pass_crypted, statut, datec)
+INSERT IGNORE INTO llx_user (login, lastname, firstname, email, admin, pass, pass_crypted, statut, datec)
 VALUES ('$login_esc', '$nom_esc', '$prenom_esc', '$email_esc', $admin, '$mdp_hash', '$mdp_hash', 1, NOW());
 EOF
     done
