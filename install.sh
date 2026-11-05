@@ -19,7 +19,7 @@ log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
 # Bannière
 echo "============================================================="
-echo "   Installation Dolibarr + MariaDB (Docker) - SAE51"
+echo "   Installation Dolibarr + MariaDB (Docker) - SAE52"
 echo "============================================================="
 
 # 1. Vérification des prérequis
