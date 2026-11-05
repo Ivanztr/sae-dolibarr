@@ -1,8 +1,6 @@
 #!/bin/bash
-# =============================================================
 # import_csv.sh - Import automatisé des données CSV dans Dolibarr
 # SAE51 - Projet ERP/CRM
-# =============================================================
 
 set -e
 
@@ -16,9 +14,7 @@ log_info()  { echo -e "${BLUE}[INFO]${NC} $1"; }
 log_ok()    { echo -e "${GREEN}[OK]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
-# =============================================================
 # Chargement des variables d'environnement
-# =============================================================
 if [ -f .env ]; then
     export $(grep -v '^#' .env | xargs)
 fi
@@ -35,9 +31,7 @@ echo "============================================================="
 echo "   Import des données CSV dans Dolibarr"
 echo "============================================================="
 
-# =============================================================
 # Vérification des fichiers CSV
-# =============================================================
 for file in clients.csv fournisseurs.csv utilisateurs.csv; do
     if [ ! -f "${CSV_DIR}/${file}" ]; then
         log_error "Fichier manquant : ${CSV_DIR}/${file}"
@@ -46,17 +40,13 @@ for file in clients.csv fournisseurs.csv utilisateurs.csv; do
 done
 log_ok "Tous les fichiers CSV sont présents."
 
-# =============================================================
 # Création du script SQL temporaire
-# =============================================================
 SQL_SCRIPT="/tmp/import_dolibarr.sql"
 > "$SQL_SCRIPT"
 
 log_info "Génération du script SQL..."
 
-# =============================================================
 # Import des CLIENTS + FOURNISSEURS (table llx_societe)
-# =============================================================
 # Type Dolibarr : 1 = Client, 2 = Fournisseur, 3 = Client+Fournisseur
 
 import_tiers() {
@@ -99,9 +89,7 @@ if [ -f "${CSV_DIR}/fournisseurs.csv" ]; then
     import_tiers "${CSV_DIR}/fournisseurs.csv" 2
 fi
 
-# =============================================================
 # Import des UTILISATEURS (table llx_user)
-# =============================================================
 if [ -f "${CSV_DIR}/utilisateurs.csv" ]; then
     log_info "Préparation import des utilisateurs..."
 
@@ -139,9 +127,7 @@ EOF
     done
 fi
 
-# =============================================================
 # Exécution du script SQL dans le conteneur MariaDB
-# =============================================================
 log_info "Exécution de l'import dans la base de données..."
 
 docker exec -i "$DB_CONTAINER" mysql -u root -p"$DB_ROOT_PASS" "$DB_NAME" < "$SQL_SCRIPT"
@@ -153,9 +139,7 @@ else
     exit 1
 fi
 
-# =============================================================
 # Statistiques
-# =============================================================
 NB_CLIENTS=$(docker exec "$DB_CONTAINER" mysql -u root -p"$DB_ROOT_PASS" "$DB_NAME" -sN -e "SELECT COUNT(*) FROM llx_societe WHERE client=1;")
 NB_FOURNISSEURS=$(docker exec "$DB_CONTAINER" mysql -u root -p"$DB_ROOT_PASS" "$DB_NAME" -sN -e "SELECT COUNT(*) FROM llx_societe WHERE client=2;")
 NB_USERS=$(docker exec "$DB_CONTAINER" mysql -u root -p"$DB_ROOT_PASS" "$DB_NAME" -sN -e "SELECT COUNT(*) FROM llx_user;")
