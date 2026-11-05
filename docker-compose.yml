@@ -20,9 +20,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # ================================
   # Service Application : Dolibarr
-  # ================================
   dolibarr:
     image: dolibarr/dolibarr:latest
     container_name: dolibarr_app
