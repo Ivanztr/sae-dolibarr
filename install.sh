@@ -1,8 +1,6 @@
 #!/bin/bash
-# =============================================================
 # install.sh - Installation automatisée de Dolibarr + MariaDB
-# SAE51 - Projet ERP/CRM
-# =============================================================
+# SAE52 - Projet ERP/CRM
 
 set -e  # Arrêt en cas d'erreur
 
@@ -24,9 +22,7 @@ echo "============================================================="
 echo "   Installation Dolibarr + MariaDB (Docker) - SAE51"
 echo "============================================================="
 
-# =============================================================
 # 1. Vérification des prérequis
-# =============================================================
 log_info "Vérification des prérequis..."
 
 if ! command -v docker &> /dev/null; then
@@ -41,39 +37,29 @@ fi
 
 log_ok "Docker et Docker Compose sont installés."
 
-# =============================================================
 # 2. Vérification du fichier .env
-# =============================================================
 if [ ! -f .env ]; then
     log_error "Fichier .env introuvable."
     exit 1
 fi
 log_ok "Fichier .env trouvé."
 
-# =============================================================
 # 3. Création des dossiers nécessaires
-# =============================================================
 log_info "Création des dossiers..."
 mkdir -p backups
 mkdir -p logs
 log_ok "Dossiers créés."
 
-# =============================================================
 # 4. Arrêt des conteneurs existants
-# =============================================================
 log_info "Arrêt des conteneurs existants (si présents)..."
 docker compose down 2>/dev/null || true
 log_ok "Nettoyage terminé."
 
-# =============================================================
 # 5. Build et démarrage des conteneurs
-# =============================================================
 log_info "Démarrage des conteneurs Docker..."
 docker compose up -d
 
-# =============================================================
 # 6. Attente de la disponibilité de MariaDB
-# =============================================================
 log_info "Attente de la disponibilité de MariaDB..."
 MAX_TRIES=30
 TRIES=0
@@ -89,9 +75,7 @@ done
 echo ""
 log_ok "MariaDB est prêt."
 
-# =============================================================
 # 7. Attente de la disponibilité de Dolibarr
-# =============================================================
 log_info "Attente de la disponibilité de Dolibarr..."
 TRIES=0
 until curl -s http://localhost:8080 > /dev/null; do
@@ -106,9 +90,7 @@ done
 echo ""
 log_ok "Dolibarr est prêt."
 
-# =============================================================
 # 8. Affichage des informations
-# =============================================================
 echo ""
 echo "============================================================="
 log_ok "Installation terminée avec succès !"
