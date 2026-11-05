@@ -117,6 +117,7 @@ if [ ! -f "$DB_DUMP" ]; then
     exit 1
 fi
 
+    docker exec "$DB_CONTAINER" mysql -u root -p"$DB_ROOT_PASS" -e "DROP DATABASE IF EXISTS $DB_NAME; CREATE DATABASE $DB_NAME;"
 gunzip -c "$DB_DUMP" | docker exec -i "$DB_CONTAINER" mysql \
     -u root -p"$DB_ROOT_PASS" "$DB_NAME"
 
