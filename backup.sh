@@ -1,4 +1,4 @@
-x≈#!/bin/bash
+#!/bin/bash
 # =============================================================
 # backup.sh - Sauvegarde complète Dolibarr + MariaDB
 # SAE51 - Projet ERP/CRM (contexte PRA)
