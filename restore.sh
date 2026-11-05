@@ -1,8 +1,6 @@
 #!/bin/bash
-# =============================================================
 # restore.sh - Restauration complète Dolibarr (PRA)
 # SAE51 - Projet ERP/CRM
-# =============================================================
 
 set -e
 
@@ -18,9 +16,7 @@ log_ok()    { echo -e "${GREEN}[OK]${NC} $1"; }
 log_warn()  { echo -e "${YELLOW}[WARN]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
-# =============================================================
 # Vérification de l'argument
-# =============================================================
 if [ -z "$1" ]; then
     echo "Usage: $0 <fichier_backup.tar.gz>"
     echo ""
@@ -40,9 +36,7 @@ echo "============================================================="
 echo "   Restauration Dolibarr depuis : $BACKUP_FILE"
 echo "============================================================="
 
-# =============================================================
 # 1. Confirmation
-# =============================================================
 log_warn "⚠️  ATTENTION : Cette opération va ÉCRASER toutes les données actuelles !"
 read -p "Confirmer la restauration ? (oui/non) : " CONFIRM
 if [ "$CONFIRM" != "oui" ]; then
@@ -50,9 +44,7 @@ if [ "$CONFIRM" != "oui" ]; then
     exit 0
 fi
 
-# =============================================================
 # 2. Extraction de l'archive
-# =============================================================
 TMP_DIR=$(mktemp -d)
 log_info "Extraction de l'archive dans $TMP_DIR..."
 tar xzf "$BACKUP_FILE" -C "$TMP_DIR"
@@ -62,9 +54,7 @@ BACKUP_NAME=$(basename "$BACKUP_FILE" .tar.gz)
 
 log_ok "Archive extraite."
 
-# =============================================================
 # 3. Restauration du fichier .env
-# =============================================================
 if [ -f "${TMP_DIR}/${BACKUP_NAME}_env.bak" ]; then
     log_info "Restauration de la configuration .env..."
     cp "${TMP_DIR}/${BACKUP_NAME}_env.bak" .env
@@ -77,16 +67,12 @@ APP_CONTAINER="dolibarr_app"
 DB_NAME="${MYSQL_DATABASE:-dolibarr}"
 DB_ROOT_PASS="${MYSQL_ROOT_PASSWORD:-rootpassword}"
 
-# =============================================================
 # 4. Arrêt des conteneurs
-# =============================================================
 log_info "Arrêt des conteneurs..."
 docker compose down
 log_ok "Conteneurs arrêtés."
 
-# =============================================================
 # 5. Redémarrage des conteneurs
-# =============================================================
 log_info "Redémarrage des conteneurs..."
 docker compose up -d
 
@@ -106,9 +92,7 @@ done
 echo ""
 log_ok "MariaDB prêt."
 
-# =============================================================
 # 6. Restauration de la base de données
-# =============================================================
 log_info "Restauration de la base de données..."
 
 DB_DUMP="${TMP_DIR}/${BACKUP_NAME}_db.sql.gz"
@@ -123,9 +107,7 @@ gunzip -c "$DB_DUMP" | docker exec -i "$DB_CONTAINER" mysql \
 
 log_ok "Base de données restaurée."
 
-# =============================================================
 # 7. Restauration des documents
-# =============================================================
 log_info "Restauration des documents Dolibarr..."
 
 DOCS_ARCHIVE="${TMP_DIR}/${BACKUP_NAME}_documents.tar.gz"
@@ -141,15 +123,11 @@ else
     log_warn "Aucune archive de documents trouvée."
 fi
 
-# =============================================================
 # 8. Redémarrage final
-# =============================================================
 log_info "Redémarrage final des services..."
 docker compose restart
 
-# =============================================================
 # 9. Nettoyage
-# =============================================================
 rm -rf "$TMP_DIR"
 log_ok "Nettoyage effectué."
 
