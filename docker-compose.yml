@@ -1,7 +1,5 @@
 services:
-  # ================================
   # Service SGBD : MariaDB
-  # ================================
   db:
     image: mariadb:10.11
     container_name: dolibarr_db
@@ -47,18 +45,14 @@ services:
     networks:
       - dolibarr_net
 
-# ================================
 # Volumes persistants
-# ================================
 volumes:
   db_data:
     driver: local
   dolibarr_data:
     driver: local
 
-# ================================
 # Réseau interne
-# ================================
 networks:
   dolibarr_net:
     driver: bridge
