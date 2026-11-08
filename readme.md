@@ -1,6 +1,6 @@
 # SAE52 : Installation Dolibarr ERP/CRM
 
-Projet réalisé dans le cadre de la SAE51 (IUT de Rouen - R&T BUT3).  
+Projet réalisé dans le cadre de la SAE52 (IUT de Rouen - R&T BUT3).  
 **Binôme** : Ivan ZATUROSKI & Yanaël DESOMBRES
 
 ---
