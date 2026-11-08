@@ -1,4 +1,4 @@
-# Sources et Références - SAE51
+# Sources et Références - SAE52
 ### Documentation officielle
 - Dolibarr ERP/CRM : [https://www.dolibarr.org/](https://www.dolibarr.org/)
 - Wiki Dolibarr (schéma de base de données & modules) : [https://wiki.dolibarr.org/](https://wiki.dolibarr.org/)
