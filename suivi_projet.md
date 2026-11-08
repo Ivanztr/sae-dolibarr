@@ -1,6 +1,6 @@
 # Journal de bord
 
-* SAE51 - Installation d’un ERP
+* SAE52 - Installation d’un ERP
 * ZATUROSKI Ivan
 * DESOMBRES Yanaël
 * Lundi 5 octobre 2026
